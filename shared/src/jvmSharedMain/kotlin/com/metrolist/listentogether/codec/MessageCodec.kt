@@ -5,7 +5,7 @@
 
 package com.metrolist.listentogether.codec
 
-import com.envolys.music.listentogether.proto.Listentogether
+import com.metrolist.music.listentogether.proto.Listentogether
 import com.metrolist.shared.listentogether.network.ApproveJoinPayload
 import com.metrolist.shared.listentogether.network.ApproveSuggestionPayload
 import com.metrolist.shared.listentogether.network.BufferCompletePayload

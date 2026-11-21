@@ -17,12 +17,13 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,18 +33,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.metrolist.shared.generated.resources.Res
 import com.metrolist.shared.generated.resources.back
-import com.metrolist.shared.generated.resources.equalizer
 import com.metrolist.shared.generated.resources.metroeq
-import org.jetbrains.compose.resources.painterResource
+import com.metrolist.shared.ui.component.MetrolistIcons
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun AudioLabScreen(
-    onBack: () -> Unit,
+    onBack: () -> Unit = {},
+    rememberProfilePicker: (@Composable (onPicked: (fileName: String, content: String) -> Unit) -> () -> Unit)? = null,
+    isAudioProcessingAvailable: Boolean = true,
 ) {
     var showEq by remember { mutableStateOf(false) }
     if (showEq) {
-        MetroEqScreen(onBack = { showEq = false })
+        MetroEqScreen(
+            rememberProfilePicker = rememberProfilePicker,
+            isAudioProcessingAvailable = isAudioProcessingAvailable,
+        )
         return
     }
     Scaffold(
@@ -51,11 +56,8 @@ fun AudioLabScreen(
             TopAppBar(
                 title = { Text(stringResource(Res.string.metroeq)) },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            painter = painterResource(Res.drawable.back),
-                            contentDescription = stringResource(Res.string.back),
-                        )
+                    IconButton(onClick = onBack, shapes = IconButtonDefaults.shapes()) {
+                        Icon(MetrolistIcons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(Res.string.back))
                     }
                 },
             )

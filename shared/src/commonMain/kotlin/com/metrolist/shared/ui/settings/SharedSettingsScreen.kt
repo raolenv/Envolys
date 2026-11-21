@@ -134,7 +134,8 @@ fun SharedSettingsScreen(
             availablePages = host.availablePages + SettingsPageId.EQUALIZER,
             pageContent = { page, onBack, onNavigate ->
                 if (page == SettingsPageId.EQUALIZER) {
-                    MetroEqScreen(
+                    AudioLabScreen(
+                        onBack = onBack,
                         rememberProfilePicker = host.rememberMetroEqProfilePicker,
                         isAudioProcessingAvailable = host.isAudioProcessingAvailable,
                     )
