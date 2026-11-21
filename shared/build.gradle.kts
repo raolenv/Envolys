@@ -280,7 +280,9 @@ kotlin {
     android {
         namespace = "com.metrolist.shared"
         compileSdk {
-            compileSdk = 36
+            compileSdk {
+                version = release(36)
+            }
         }
         minSdk = 24
         androidResources.enable = true
