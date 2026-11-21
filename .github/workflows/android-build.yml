@@ -39,6 +39,7 @@ jobs:
           printf '\n84831b9409646a918e30573bab4c9c91346d8abd' > "$SDK_ROOT/licenses/android-sdk-preview-license"
           printf '\nd975f751698a77b662f1254ddbeed3901e976f5a' > "$SDK_ROOT/licenses/intel-android-extra-license"
           yes | timeout 180 "$SDKM" --licenses >/dev/null 2>&1 || true
+          "$SDKM" --channel=3 --install "platforms;android-37" "build-tools;37.0.0-rc1" || true
           "$SDKM" --install "platforms;android-36" "build-tools;36.0.0" "cmake;4.1.2" "ndk;30.0.16248370" || true
 
       - name: Set up Gradle

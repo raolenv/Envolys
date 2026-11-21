@@ -249,7 +249,9 @@ sentry {
 
 android {
     namespace = "com.metrolist.android"
-    compileSdk = 36
+    compileSdk {
+        version = release(37) { minorApiLevel = 1 }
+    }
     ndkVersion = libs.versions.androidNdk.get()
 
     bundle {
@@ -261,7 +263,7 @@ android {
     defaultConfig {
         applicationId = "com.envolys.music"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 2
         versionName = appVersion
 

@@ -15,7 +15,9 @@ val opusAbis = listOf("arm64-v8a", "armeabi-v7a")
 
 android {
     namespace = "com.metrolist.opus"
-    compileSdk = 36
+    compileSdk {
+        version = release(37) { minorApiLevel = 1 }
+    }
 
     defaultConfig {
         minSdk = 24
