@@ -1648,7 +1648,7 @@
     <string name="no_profiles">No equalizer profiles</string>
     <!-- Translators: Button in the equalizer dialog that opens the profile import options. -->
     <string name="import_profile">Import profile</string>
-    <string name="edit_in_metroeq">Edit in MetroEQ</string>
+    <string name="edit_in_metroeq">Edit in Audio Lab</string>
     <!-- Translators: Button in the equalizer dialog that opens Android's built-in equalizer. -->
     <string name="system_equalizer">System equalizer</string>
     <!-- Translators: Import option that searches the AutoEQ headphone database. AutoEQ is a project name. -->
@@ -5114,7 +5114,7 @@
     <string name="import_error_playlist_tracks_unavailable">Could not load the playlist's tracks from %1$s. Export the playlist and paste the track list.</string>
     <string name="import_error_album_tracks_unavailable">Could not load the album's tracks from %1$s. Export the album and paste the track list.</string>
 <string name="audio_boost">Preamp</string>
-<string name="equalizer_usage_warning">The Metrolist team assumes no responsibility for your use of MetroEQ.</string>
+<string name="equalizer_usage_warning">Use Audio Lab at your own risk. Envolys/Metrolist contributors are not responsible for hearing damage or audio issues caused by custom EQ/FX settings.</string>
 <string name="playlist_cover_updated">Playlist cover updated</string>
 <string name="playlist_cover_removed">Custom cover removed</string>
 <string name="login">Login</string>
@@ -5185,7 +5185,7 @@
 <string name="metroeq_custom_profile">Custom profile</string>
 <string name="metroeq_peak_reduction">Peak protection: %1$s dB</string>
 <string name="metroeq_preset_vocal">Vocals</string>
-<string name="metroeq">MetroEQ</string>
+<string name="metroeq">Audio Lab</string>
 <string name="metroeq_preset_rock">Rock</string>
 <string name="metroeq_save_as">Save as</string>
 <string name="metroeq_preset_bass">Bass boost</string>

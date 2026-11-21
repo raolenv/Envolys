@@ -39,7 +39,7 @@ import java.nio.file.StandardCopyOption
 import java.security.MessageDigest
 
 object DesktopUpdateManager {
-    private const val API_BASE = "https://api.github.com/repos/MetrolistGroup/Metrolist"
+    private const val API_BASE = "https://api.github.com/repos/raolenv/Envolys"
     internal const val RELEASES_URL = "$API_BASE/releases?per_page=50"
     private const val REGISTRY_PATH = "Software\\Metrolist\\Desktop"
     private const val MAX_MANAGER_BYTES = 128L * 1024 * 1024

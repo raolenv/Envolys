@@ -108,7 +108,7 @@ import com.metrolist.shared.ui.components.ExpressiveSwitch
 import com.metrolist.shared.ui.components.SwipeBackLayout
 import com.metrolist.shared.ui.components.focusOutline
 import com.metrolist.shared.ui.components.singleLineMarquee
-import com.metrolist.shared.ui.equalizer.MetroEqScreen
+import com.metrolist.shared.ui.equalizer.AudioLabScreen
 import com.metrolist.shared.ui.haptics.rememberMetrolistHaptics
 import com.metrolist.shared.ui.icons.MetrolistIcons
 import com.metrolist.shared.ui.menu.ExpressiveSelectionMenu
