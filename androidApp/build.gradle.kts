@@ -264,7 +264,7 @@ android {
         applicationId = "com.envolys.music"
         minSdk = 24
         targetSdk = 37
-        versionCode = 2
+        versionCode = 100
         versionName = appVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
