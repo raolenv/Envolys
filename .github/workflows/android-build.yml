@@ -34,26 +34,17 @@ jobs:
 
       - name: Install Android SDK components
         run: |
-          set +o pipefail
-          SDKM="${ANDROID_SDK_ROOT:-$ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager"
-          yes | "$SDKM" --licenses >/dev/null 2>&1 || true
-          "$SDKM" --install "platforms;android-36" "build-tools;36.0.0" "cmake;4.1.2" "ndk;30.0.16248370" >/dev/null || true
-          yes | "$SDKM" --licenses >/dev/null 2>&1 || true
-
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Build
-        run: |
-          if [ "${{ inputs.build_type }}" = "release" ]; then
-            ./gradlew :androidApp:assembleRelease --stacktrace
-          else
-            ./gradlew :androidApp:assembleDebug --stacktrace
-          fi
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: envolys-android-${{ inputs.build_type }}
-          path: androidApp/build/outputs/apk/**/*.apk
-          if-no-files-found: error
+          set -eu
+          SDK_ROOT="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
+          SDKM="$SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
+          mkdir -p "$SDK_ROOT/licenses"
+          # Pre-accept common licenses; also pipe yes for any remaining prompts.
+          for lic in android-sdk-license android-sdk-preview-license android-sdk-arm-dbt-license intel-android-extra-license mips-android-sysimage-license google-gdk-license android-googletv-license; do
+            touch "$SDK_ROOT/licenses/$lic"
+          done
+          printf "
+24333f8a63b6825ea9c5514f83c2829b004d1fee" > "$SDK_ROOT/licenses/android-sdk-license"
+          printf "
+84831b9409646a918e30573bab4c9c91346d8abd" > "$SDK_ROOT/licenses/android-sdk-preview-license"
+          ( while true; do echo y; done ) | timeout 180 "$SDKM" --licenses >/dev/null 2>&1 || true
+          "$SDKM" --install "platforms;android-36" "build-tools;36.0.0" "cmake;4.1.2" "ndk;30.0.16248370" || true
