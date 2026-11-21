@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Metrolist
+Comment=Stream and manage your YouTube Music library
+Exec=com.envolys.desktop %u
+Icon=com.envolys.desktop
+Terminal=false
+Categories=AudioVideo;Player;Music;
+StartupWMClass=Metrolist
+Keywords=music;player;youtube;streaming;
+MimeType=x-scheme-handler/metrolist;x-scheme-handler/envolys-auth;
